@@ -25,6 +25,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 //ROUTE
+app.use("/", (req, res, next) => {
+  return res.statusCode(200).json("Ecommerce App");
+});
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/videos", videoRouter);
