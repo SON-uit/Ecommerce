@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please send me your name"],
     trim: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -31,6 +32,11 @@ const userSchema = new mongoose.Schema({
       message: "Please enter a valid email address",
     },
   },
+  avatar: {
+    type: String,
+  },
+  bio: { type: String },
+  coverImage: { type: String },
 });
 userSchema.pre("save", async function (next) {
   //only run when password is modified;
